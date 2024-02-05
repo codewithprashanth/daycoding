@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Information</title>
+</head>
+<body>
+    <h1>Member Information</h1>
+    <form action="/add_member" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="hall_ticket_number">Hall Ticket Number:</label>
+        <input type="text" name="hall_ticket_number" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="text" name="dob" required><br>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <input type="submit" value="Add Member">
+    </form>
+
+    <h2>Member List:</h2>
+    <ul>
+        {% for member in members %}
+            <li>{{ member.name }} - {{ member.hall_ticket_number }} - {{ member.dob }} - {{ member.gender }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
